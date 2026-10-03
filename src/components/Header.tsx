@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import logo from '../assets/win-holding-logo-horizontal.png'
+import logo from '../assets/win-holding-logo.png'
 
 const links = [
   { href: '#about', label: 'About' },
@@ -27,9 +27,9 @@ export default function Header() {
         solid ? 'border-b border-gold/20 bg-ivory/95 shadow-sm backdrop-blur' : 'bg-transparent'
       }`}
     >
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
+      <div className="mx-auto flex h-24 max-w-7xl items-center justify-between px-6 sm:h-28">
         <a href="#top" aria-label="WIN HOLDING — home">
-          <img src={logo} alt="WIN HOLDING — Sky & Beyond" className="h-11 w-auto sm:h-12" />
+          <img src={logo} alt="WIN HOLDING — Sky & Beyond" className="h-20 w-auto py-1 sm:h-24" />
         </a>
 
         <nav className="hidden items-center gap-10 md:flex">
