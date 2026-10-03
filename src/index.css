@@ -1,0 +1,31 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-gold: #ae8c63;
+  --color-gold-light: #c9ab82;
+  --color-gold-dark: #8a6c47;
+  --color-navy: #16384a;
+  --color-navy-deep: #0e2532;
+  --color-ink: #2b2b2b;
+  --color-cream: #f7f4ef;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Montserrat', system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white font-sans text-ink antialiased;
+}
+
+.emblem {
+  background-color: currentColor;
+  mask: url('./assets/emblem-mask.png') center / contain no-repeat;
+  -webkit-mask: url('./assets/emblem-mask.png') center / contain no-repeat;
+}
+
+.eyebrow {
+  @apply text-xs font-medium uppercase tracking-[0.3em] text-gold;
+}
