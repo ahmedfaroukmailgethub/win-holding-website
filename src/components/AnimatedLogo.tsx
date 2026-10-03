@@ -4,8 +4,8 @@ import still from '../assets/logo-static.png'
 
 type Props = { className?: string }
 
-// Stacked brand logo. The rings around the "W" ripple like waves (SVG
-// turbulence displacement); the W and wordmark stay still.
+// Stacked brand logo. The rings around the "W" circle continuously and ripple
+// like waves (SVG turbulence displacement); the W and wordmark stay still.
 export default function AnimatedLogo({ className = '' }: Props) {
   const filterId = `waves-${useId().replace(/:/g, '')}`
   const [reduceMotion, setReduceMotion] = useState(false)
@@ -38,8 +38,10 @@ export default function AnimatedLogo({ className = '' }: Props) {
           <feDisplacementMap in="SourceGraphic" in2="noise" scale={reduceMotion ? 0 : 9} xChannelSelector="R" yChannelSelector="G" />
         </filter>
       </defs>
-      <g className={reduceMotion ? undefined : 'logo-waves'}>
-        <image href={rings} width="586" height="751" filter={`url(#${filterId})`} />
+      <g className={reduceMotion ? undefined : 'logo-spin'}>
+        <g className={reduceMotion ? undefined : 'logo-waves'}>
+          <image href={rings} width="586" height="751" filter={`url(#${filterId})`} />
+        </g>
       </g>
       <image href={still} width="586" height="751" />
     </svg>

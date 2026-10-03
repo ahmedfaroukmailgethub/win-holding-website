@@ -29,19 +29,33 @@ body {
   @apply text-xs font-medium uppercase tracking-[0.3em] text-gold-dark;
 }
 
-/* Rings of the logo swell and sway gently around the emblem centre. */
+/* Rings of the logo circle continuously around the W while gently swelling. */
+.logo-spin,
 .logo-waves {
   transform-box: view-box;
   transform-origin: 288.5px 280.5px;
+}
+
+.logo-spin {
+  animation: logo-spin 24s linear infinite;
+}
+
+.logo-waves {
   animation: logo-waves 5s ease-in-out infinite;
+}
+
+@keyframes logo-spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes logo-waves {
   0%,
   100% {
-    transform: scale(1) rotate(0deg);
+    transform: scale(1);
   }
   50% {
-    transform: scale(1.035) rotate(4deg);
+    transform: scale(1.035);
   }
 }
