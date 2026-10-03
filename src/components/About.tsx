@@ -10,7 +10,7 @@ export default function About() {
       <div className="mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-2 lg:gap-24">
         <div>
           <p className="eyebrow">About WIN HOLDING</p>
-          <h2 className="mt-5 font-serif text-4xl font-medium leading-tight text-navy sm:text-5xl">
+          <h2 className="mt-5 font-serif text-4xl font-medium leading-tight text-ink sm:text-5xl">
             A focused group with a global outlook.
           </h2>
           <div className="mt-6 h-px w-20 bg-gold" />

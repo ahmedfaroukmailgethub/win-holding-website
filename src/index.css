@@ -4,28 +4,27 @@
   --color-gold: #ae8c63;
   --color-gold-light: #c9ab82;
   --color-gold-dark: #8a6c47;
-  --color-navy: #16384a;
-  --color-navy-deep: #0e2532;
-  --color-ink: #2b2b2b;
-  --color-cream: #f7f4ef;
+  --color-ink: #2d2d2d;
+  --color-ivory: #fbf8f3;
+  --color-sand: #f3ece1;
   --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'Montserrat', system-ui, sans-serif;
 }
 
+/* The brand is light-on-ivory; opt out of browser/OS dark-mode recolouring. */
+:root {
+  color-scheme: only light;
+}
+
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
 }
 
 body {
-  @apply bg-white font-sans text-ink antialiased;
-}
-
-.emblem {
-  background-color: currentColor;
-  mask: url('./assets/emblem-mask.png') center / contain no-repeat;
-  -webkit-mask: url('./assets/emblem-mask.png') center / contain no-repeat;
+  @apply bg-ivory font-sans text-ink antialiased;
 }
 
 .eyebrow {
-  @apply text-xs font-medium uppercase tracking-[0.3em] text-gold;
+  @apply text-xs font-medium uppercase tracking-[0.3em] text-gold-dark;
 }

@@ -8,13 +8,13 @@ export default function Contact() {
       <div className="mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-2">
         <div>
           <p className="eyebrow">Contact</p>
-          <h2 className="mt-5 font-serif text-4xl font-medium text-navy sm:text-5xl">Let’s talk.</h2>
+          <h2 className="mt-5 font-serif text-4xl font-medium text-ink sm:text-5xl">Let’s talk.</h2>
           <p className="mt-6 max-w-md font-light leading-relaxed text-ink/70">
             For partnership, investment and business enquiries, please reach out to our head office.
           </p>
           <a
             href={`mailto:${contact.email}`}
-            className="mt-10 inline-block bg-navy px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-white transition hover:bg-gold"
+            className="mt-10 inline-block bg-gold px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-white transition hover:bg-gold-dark"
           >
             Email Us
           </a>
