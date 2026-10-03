@@ -1,4 +1,4 @@
-import logo from '../assets/win-holding-logo.png'
+import AnimatedLogo from './AnimatedLogo'
 import { companies, type Company } from '../data'
 
 const Stem = () => <div className="mx-auto hidden h-10 w-px bg-gold md:block" />
@@ -42,7 +42,7 @@ export default function Group() {
           <div className="h-1 bg-gradient-to-r from-gold-dark via-gold-light to-gold-dark" />
           <div className="p-10">
             <p className="eyebrow !text-[10px]">Ultimate Holding Company</p>
-            <img src={logo} alt="WIN HOLDING — Sky & Beyond" className="mx-auto mt-6 h-48 w-auto" />
+            <AnimatedLogo className="mx-auto mt-6 aspect-[586/751] h-48" />
             <p className="mt-6 border-t border-gold/20 pt-4 text-xs text-ink/70">London, United Kingdom · Parent entity</p>
           </div>
         </div>

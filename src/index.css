@@ -18,7 +18,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 7.5rem;
+  scroll-padding-top: 8.5rem;
 }
 
 body {
@@ -27,4 +27,21 @@ body {
 
 .eyebrow {
   @apply text-xs font-medium uppercase tracking-[0.3em] text-gold-dark;
+}
+
+/* Rings of the logo swell and sway gently around the emblem centre. */
+.logo-waves {
+  transform-box: view-box;
+  transform-origin: 288.5px 280.5px;
+  animation: logo-waves 5s ease-in-out infinite;
+}
+
+@keyframes logo-waves {
+  0%,
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.035) rotate(4deg);
+  }
 }

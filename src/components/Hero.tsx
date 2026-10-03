@@ -1,11 +1,11 @@
-import logo from '../assets/win-holding-logo.png'
+import AnimatedLogo from './AnimatedLogo'
 
 export default function Hero() {
   return (
     <section id="top" className="relative flex min-h-screen items-center overflow-hidden bg-ivory">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_45%,rgba(174,140,99,0.14),transparent_60%)]" />
 
-      <div className="relative mx-auto grid w-full max-w-7xl items-center gap-14 px-6 pb-16 pt-32 lg:grid-cols-[1.15fr_1fr] lg:pt-20">
+      <div className="relative mx-auto grid w-full max-w-7xl items-center gap-14 px-6 pb-16 pt-40 lg:grid-cols-[1.15fr_1fr] lg:pt-32">
         <div className="order-2 lg:order-1">
           <p className="eyebrow">London · Dubai · Belgrade · Ljubljana</p>
           <h1 className="mt-6 font-serif text-5xl font-medium leading-[1.05] text-ink sm:text-6xl lg:text-7xl">
@@ -32,11 +32,7 @@ export default function Hero() {
         </div>
 
         <div className="order-1 flex justify-center lg:order-2">
-          <img
-            src={logo}
-            alt="WIN HOLDING — Sky & Beyond"
-            className="w-56 drop-shadow-[0_20px_40px_rgba(174,140,99,0.15)] sm:w-72 lg:w-96"
-          />
+          <AnimatedLogo className="aspect-[586/751] w-56 drop-shadow-[0_20px_40px_rgba(174,140,99,0.15)] sm:w-72 lg:w-96" />
         </div>
       </div>
     </section>
