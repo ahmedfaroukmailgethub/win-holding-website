@@ -1,4 +1,5 @@
 import AnimatedLogo from './AnimatedLogo'
+import PlaneLane from './PlaneLane'
 import { FlagEU, FlagUAE, FlagUK } from './Flags'
 
 const locations = [
@@ -14,8 +15,9 @@ export default function Hero() {
 
       <div className="relative mx-auto flex w-full max-w-4xl flex-col items-center px-6 pb-20 pt-36 text-center sm:pt-40">
         <AnimatedLogo className="aspect-[586/751] w-56 sm:w-72 lg:w-80" />
+        <PlaneLane direction="rtl" className="mt-8 sm:mt-10" />
 
-        <p className="eyebrow mt-16 sm:mt-20 flex flex-wrap items-center justify-center gap-x-3 gap-y-2">
+        <p className="eyebrow mt-8 sm:mt-10 flex flex-wrap items-center justify-center gap-x-3 gap-y-2">
           {locations.map(({ name, Flag }, i) => (
             <span key={name} className="inline-flex items-center gap-2">
               {i > 0 && <span aria-hidden>·</span>}
@@ -45,6 +47,7 @@ export default function Hero() {
             Get in Touch
           </a>
         </div>
+        <PlaneLane direction="ltr" className="mt-14" />
       </div>
     </section>
   )

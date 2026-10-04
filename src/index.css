@@ -47,3 +47,42 @@ body {
     animation: none;
   }
 }
+
+/* Hero airplanes: cross the full width with a gentle rise and dip. */
+.plane-rtl,
+.plane-ltr {
+  left: 0;
+  will-change: transform;
+}
+
+.plane-rtl {
+  animation: plane-rtl 20s linear infinite;
+}
+
+.plane-ltr {
+  animation: plane-ltr 24s linear 7s infinite backwards;
+}
+
+@keyframes plane-rtl {
+  0% {
+    transform: translate(105vw, 0);
+  }
+  50% {
+    transform: translate(45vw, -18px);
+  }
+  100% {
+    transform: translate(-15vw, 0);
+  }
+}
+
+@keyframes plane-ltr {
+  0% {
+    transform: translate(-15vw, 0);
+  }
+  50% {
+    transform: translate(45vw, 14px);
+  }
+  100% {
+    transform: translate(105vw, 0);
+  }
+}
