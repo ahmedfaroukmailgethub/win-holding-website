@@ -22,7 +22,7 @@ const members: { name: string; wide?: boolean; logo: ReactNode }[] = [
       // "EST. 2006" is live text (trimmed off the image) so it can be sized freely.
       <div className="w-full">
         <img src={contraInvestmentWordmark} alt="Contra Investment" className="block w-full" />
-        <p className="mt-1 pr-[5%] text-right text-[15px] font-bold tracking-wider text-black">EST. 2006</p>
+        <p className="mt-1 pr-[5%] text-right text-[15px] font-bold tracking-wider text-gold">EST. 2006</p>
       </div>
     ),
   },
