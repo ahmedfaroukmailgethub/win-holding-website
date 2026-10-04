@@ -6,7 +6,7 @@ import map from '../assets/world-map-capitals.json'
 // out, and a new random route takes its place. Runs only while on screen.
 
 const SVG = 'http://www.w3.org/2000/svg'
-const FLIGHTS = 7 // planes in the air at once
+const FLIGHTS = 14 // planes in the air at once
 const SPEED = 55 // map units per second
 const PAUSE = 700 // ms on the ground at the far end
 const FADE = 600 // ms for the route line to fade in / out
@@ -118,7 +118,7 @@ export default function MapFlights() {
       if (running) return
       running = true
       const now = performance.now()
-      if (!flights.length) for (let i = 0; i < FLIGHTS; i++) flights.push(launch(now, i * 1100))
+      if (!flights.length) for (let i = 0; i < FLIGHTS; i++) flights.push(launch(now, i * 600))
       raf = requestAnimationFrame(step)
     }
     const stop = () => {
