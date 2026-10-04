@@ -1,17 +1,10 @@
-// Generates src/assets/world-map.svg (landmass in the logo gold) and
-// src/assets/world-map-pins.json (office pin positions as % of the map).
+// Generates src/assets/world-map.svg: landmass in the logo gold with a dot on
+// each major capital.
 // Run with: node scripts/build-world-map.mjs
 import { readFileSync, writeFileSync } from 'node:fs'
 import { geoMercator, geoPath } from 'd3-geo'
 import { feature } from 'topojson-client'
 import capitals from './capitals.mjs'
-
-const offices = [
-  { city: 'London', lat: 51.5074, lng: -0.1278 },
-  { city: 'Dubai', lat: 25.2048, lng: 55.2708 },
-  { city: 'Belgrade', lat: 44.7866, lng: 20.4489 },
-  { city: 'Ljubljana', lat: 46.0569, lng: 14.5058 },
-]
 
 const topo = JSON.parse(readFileSync(new URL('../node_modules/world-atlas/land-110m.json', import.meta.url)))
 const land = feature(topo, topo.objects.land)
@@ -78,10 +71,4 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}">
 `
 writeFileSync(new URL('../src/assets/world-map.svg', import.meta.url), svg)
 
-const pins = offices.map(({ city, lat, lng }) => {
-  const [x, y] = projection([lng, lat])
-  return { city, x: +((x / W) * 100).toFixed(2), y: +((y / H) * 100).toFixed(2) }
-})
-writeFileSync(new URL('../src/assets/world-map-pins.json', import.meta.url), JSON.stringify(pins, null, 2) + '\n')
-
-console.log(`world-map.svg ${W}x${H}, ${(svg.length / 1024).toFixed(1)} KB, ${MAJOR.size} major capitals`, pins)
+console.log(`world-map.svg ${W}x${H}, ${(svg.length / 1024).toFixed(1)} KB, ${MAJOR.size} major capitals`)

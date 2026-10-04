@@ -1,30 +1,10 @@
 import { useState, type FormEvent } from 'react'
 import { contact, offices } from '../data'
 import worldMap from '../assets/world-map.svg'
-import pins from '../assets/world-map-pins.json'
 
 const heading = 'text-sm font-semibold uppercase tracking-[0.2em] text-ink'
 const field =
   'w-full border border-gold/30 bg-ivory px-4 py-3 text-sm text-ink placeholder:text-ink/40 outline-none transition focus:border-gold'
-
-function MapPin({ city, x, y }: { city: string; x: number; y: number }) {
-  return (
-    // Anchored by the pin's tip (bottom centre) on the city.
-    <div className="group absolute -translate-x-1/2 -translate-y-full hover:z-10" style={{ left: `${x}%`, top: `${y}%` }}>
-      <svg viewBox="0 0 12 22" className="block h-6 w-auto text-black drop-shadow-sm" role="img" aria-label={city}>
-        <title>{city}</title>
-        <path
-          fill="currentColor"
-          fillRule="evenodd"
-          d="M6 0C2.7 0 0 2.6 0 5.8 0 10.2 6 22 6 22s6-11.8 6-16.2C12 2.6 9.3 0 6 0zm0 8.1A2.2 2.2 0 1 1 6 3.7a2.2 2.2 0 0 1 0 4.4z"
-        />
-      </svg>
-      <span className="pointer-events-none absolute bottom-full left-1/2 mb-1 -translate-x-1/2 whitespace-nowrap rounded bg-ink px-2 py-0.5 text-[10px] uppercase tracking-wider text-ivory opacity-0 transition group-hover:opacity-100">
-        {city}
-      </span>
-    </div>
-  )
-}
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' })
@@ -48,12 +28,7 @@ export default function Contact() {
           <div className="mx-auto mt-6 h-px w-20 bg-gold" />
         </div>
 
-        <div className="relative mx-auto mt-14 max-w-5xl">
-          <img src={worldMap} alt="World map showing WIN HOLDING offices" className="block w-full" />
-          {pins.map((p) => (
-            <MapPin key={p.city} {...p} />
-          ))}
-        </div>
+        <img src={worldMap} alt="World map" className="mx-auto mt-14 block w-full max-w-5xl" />
 
         <div className="mt-16 grid gap-14 lg:grid-cols-[1fr_1.6fr]">
           <div className="space-y-10">
