@@ -1,7 +1,7 @@
 import Header from './components/Header'
 import Hero from './components/Hero'
 import About from './components/About'
-import Vision from './components/Vision'
+import { Mission, Vision } from './components/Statements'
 import Presence from './components/Presence'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
@@ -14,6 +14,7 @@ export default function App() {
         <Hero />
         <About />
         <Vision />
+        <Mission />
         <Presence />
         <Contact />
       </main>
