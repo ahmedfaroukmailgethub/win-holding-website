@@ -117,3 +117,24 @@ body {
     transform: translateX(110vw);
   }
 }
+
+/* Slow pulse for the red square in the CONTRA GROUP mark. */
+.square-blink {
+  animation: square-blink 2.4s ease-in-out infinite;
+}
+
+@keyframes square-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.15;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .square-blink {
+    animation: none;
+  }
+}
