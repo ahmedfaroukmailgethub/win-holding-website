@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import logo from '../assets/win-holding-logo.png'
+import contraGroupLogo from '../assets/contra-group-logo.png'
 
 const links = [
   { href: '#about', label: 'About' },
@@ -44,6 +45,11 @@ export default function Header() {
             </a>
           ))}
         </nav>
+
+        <div className="hidden items-center gap-3 min-[1120px]:flex">
+          <span className="text-[11px] font-medium uppercase tracking-[0.2em] text-ink/60">Member of:</span>
+          <img src={contraGroupLogo} alt="Contra Group" className="h-5 w-auto" />
+        </div>
 
         <button
           type="button"
