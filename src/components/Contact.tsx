@@ -21,7 +21,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="bg-white py-24 sm:py-32">
+    <section id="contact" className="bg-white pb-24 pt-16 sm:pb-32 sm:pt-20">
       <div className="mx-auto max-w-6xl px-6">
         <div className="text-center">
           <p className="eyebrow !text-sm sm:!text-base">Contact</p>
@@ -29,7 +29,7 @@ export default function Contact() {
           <div className="mx-auto mt-6 h-px w-20 bg-gold" />
         </div>
 
-        <div className="relative mx-auto mt-14 max-w-5xl">
+        <div className="relative mx-auto mt-8 max-w-5xl">
           <img src={worldMap} alt="World map" className="block w-full" />
           <MapFlights />
         </div>
