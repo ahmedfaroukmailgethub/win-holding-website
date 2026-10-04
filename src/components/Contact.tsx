@@ -9,20 +9,17 @@ const field =
 
 function MapPin({ city, x, y }: { city: string; x: number; y: number }) {
   return (
-    <div className="group absolute -translate-x-1/2 -translate-y-1/2 hover:z-10" style={{ left: `${x}%`, top: `${y}%` }}>
-      <span className="absolute inset-0 animate-ping rounded-full bg-gold/40" />
-      <span
-        title={city}
-        className="relative flex h-5 w-5 items-center justify-center rounded-full bg-ink shadow-md ring-2 ring-ivory"
-      >
-        <svg viewBox="0 0 24 24" className="h-3 w-3 text-gold-light" aria-hidden>
-          <path
-            fill="currentColor"
-            d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"
-          />
-        </svg>
-      </span>
-      <span className="pointer-events-none absolute left-1/2 top-full mt-1 -translate-x-1/2 whitespace-nowrap rounded bg-ink px-2 py-0.5 text-[10px] uppercase tracking-wider text-ivory opacity-0 transition group-hover:opacity-100">
+    // Anchored by the pin's tip (bottom centre) on the city.
+    <div className="group absolute -translate-x-1/2 -translate-y-full hover:z-10" style={{ left: `${x}%`, top: `${y}%` }}>
+      <svg viewBox="0 0 12 22" className="block h-6 w-auto text-black drop-shadow-sm" role="img" aria-label={city}>
+        <title>{city}</title>
+        <path
+          fill="currentColor"
+          fillRule="evenodd"
+          d="M6 0C2.7 0 0 2.6 0 5.8 0 10.2 6 22 6 22s6-11.8 6-16.2C12 2.6 9.3 0 6 0zm0 8.1A2.2 2.2 0 1 1 6 3.7a2.2 2.2 0 0 1 0 4.4z"
+        />
+      </svg>
+      <span className="pointer-events-none absolute bottom-full left-1/2 mb-1 -translate-x-1/2 whitespace-nowrap rounded bg-ink px-2 py-0.5 text-[10px] uppercase tracking-wider text-ivory opacity-0 transition group-hover:opacity-100">
         {city}
       </span>
     </div>
