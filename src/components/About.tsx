@@ -1,4 +1,5 @@
 import AnimatedLogo from './AnimatedLogo'
+import winGroupLogo from '../assets/win-group-logo.png'
 
 export default function About() {
   return (
@@ -11,6 +12,7 @@ export default function About() {
           </h2>
           <div className="mt-6 h-px w-20 bg-gold" />
           <AnimatedLogo className="mx-auto mt-12 block aspect-[586/751] h-56 sm:h-64" />
+          <img src={winGroupLogo} alt="WIN GROUP — World Innovation Network" className="mx-auto mt-14 h-48 w-auto sm:h-56" />
         </div>
         <div className="space-y-6 text-justify text-base font-light leading-relaxed text-ink/80">
           <p>
