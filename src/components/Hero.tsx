@@ -7,7 +7,7 @@ export default function Hero() {
 
       <div className="relative mx-auto grid w-full max-w-7xl items-center gap-14 px-6 pb-16 pt-40 lg:grid-cols-[1.15fr_1fr] lg:pt-32">
         <div className="order-2 lg:order-1">
-          <p className="eyebrow">London · Dubai · Belgrade · Ljubljana</p>
+          <p className="eyebrow">London · Dubai · European Union</p>
           <h1 className="mt-6 font-serif text-5xl font-medium leading-[1.05] text-ink sm:text-6xl lg:text-7xl">
             Building enduring businesses, <span className="italic text-gold-dark">sky &amp; beyond.</span>
           </h1>
