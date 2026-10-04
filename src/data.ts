@@ -8,4 +8,8 @@ export const offices = [
 export const contact = {
   email: 'ahmed.farouk@winholding.win',
   website: 'www.winholding.win',
+  phones: [
+    { label: 'UK', number: '+44 75 4417 6586' },
+    { label: 'UAE', number: '+971 50 189 0078' },
+  ],
 }
