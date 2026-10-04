@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import logo from '../assets/win-holding-logo.png'
-import contraGroupLogo from '../assets/contra-group-logo.png'
 
 const links = [
   { href: '#about', label: 'About' },
@@ -48,7 +47,9 @@ export default function Header() {
 
         <div className="hidden flex-col items-center gap-1.5 lg:flex">
           <span className="text-[11px] font-medium uppercase tracking-[0.2em] text-ink/60">Member of:</span>
-          <img src={contraGroupLogo} alt="Contra Group" className="h-5 w-auto" />
+          <span className="font-wordmark text-lg tracking-[0.18em] text-ink">
+            CONTRA GROUP<span className="text-[#ff4136]">.</span>
+          </span>
         </div>
 
         <button

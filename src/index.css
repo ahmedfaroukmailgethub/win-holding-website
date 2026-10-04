@@ -9,6 +9,8 @@
   --color-sand: #f3ece1;
   --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'Montserrat', system-ui, sans-serif;
+  /* Closest free match to the WIN HOLDING wordmark (Optima-style flared caps) */
+  --font-wordmark: 'Marcellus', 'Optima', serif;
 }
 
 /* The brand is light-on-ivory; opt out of browser/OS dark-mode recolouring. */
