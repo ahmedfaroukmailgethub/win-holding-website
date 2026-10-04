@@ -3,7 +3,7 @@ import winGroupLogo from '../assets/win-group-logo.png'
 import PlaneLane from './PlaneLane'
 
 // Company names in the body copy, set in the logo gold.
-const Brand = ({ children }: { children: string }) => <span className="text-gold">{children}</span>
+const Brand = ({ children }: { children: string }) => <span className="font-semibold text-gold">{children}</span>
 
 export default function About() {
   return (
