@@ -13,7 +13,7 @@ export default function About() {
         <div>
           <p className="eyebrow">About WIN HOLDING</p>
           <h2 className="mt-5 font-serif text-4xl font-medium leading-tight text-ink sm:text-5xl">
-            A focused group with a global outlook.
+            A Focused Group with a Global Outlook.
           </h2>
           <div className="mt-6 h-px w-20 bg-gold" />
           <AnimatedLogo className="mx-auto mt-12 block aspect-[586/751] h-56 sm:h-64" />
