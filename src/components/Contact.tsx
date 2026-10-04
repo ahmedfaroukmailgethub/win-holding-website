@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from 'react'
 import { contact, offices } from '../data'
 import worldMap from '../assets/world-map.svg'
+import MapFlights from './MapFlights'
 
 const heading = 'text-sm font-semibold uppercase tracking-[0.2em] text-ink'
 const field =
@@ -28,7 +29,10 @@ export default function Contact() {
           <div className="mx-auto mt-6 h-px w-20 bg-gold" />
         </div>
 
-        <img src={worldMap} alt="World map" className="mx-auto mt-14 block w-full max-w-5xl" />
+        <div className="relative mx-auto mt-14 max-w-5xl">
+          <img src={worldMap} alt="World map" className="block w-full" />
+          <MapFlights />
+        </div>
 
         <div className="mt-16 grid gap-14 lg:grid-cols-[1fr_1.6fr]">
           <div className="space-y-10">

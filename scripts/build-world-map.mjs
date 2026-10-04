@@ -1,5 +1,6 @@
-// Generates src/assets/world-map.svg: landmass in the logo gold with a dot on
-// each major capital.
+// Generates src/assets/world-map.svg (landmass in the logo gold with a dot on
+// each major capital) and src/assets/world-map-capitals.json (those capitals in
+// map units, used for the animated flight routes).
 // Run with: node scripts/build-world-map.mjs
 import { readFileSync, writeFileSync } from 'node:fs'
 import { geoMercator, geoPath } from 'd3-geo'
@@ -51,11 +52,12 @@ const MAJOR = new Set([
 ])
 
 // Small black dot on each major capital (skipping any outside the cropped frame).
-const dots = capitals
+const major = capitals
   .filter(([city]) => MAJOR.has(city))
-  .map(([, lat, lng]) => projection([lng, lat]))
-  .filter(([x, y]) => x >= 0 && x <= W && y >= 0 && y <= H)
-  .map(([x, y]) => `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="1.6"/>`)
+  .map(([city, lat, lng]) => [city, ...projection([lng, lat])])
+  .filter(([, x, y]) => x >= 0 && x <= W && y >= 0 && y <= H)
+const dots = major
+  .map(([, x, y]) => `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="1.6"/>`)
   .join('')
 
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}">
@@ -70,5 +72,13 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}">
 </svg>
 `
 writeFileSync(new URL('../src/assets/world-map.svg', import.meta.url), svg)
+writeFileSync(
+  new URL('../src/assets/world-map-capitals.json', import.meta.url),
+  JSON.stringify({
+    width: W,
+    height: H,
+    capitals: major.map(([city, x, y]) => ({ city, x: +x.toFixed(1), y: +y.toFixed(1) })),
+  }) + '\n',
+)
 
 console.log(`world-map.svg ${W}x${H}, ${(svg.length / 1024).toFixed(1)} KB, ${MAJOR.size} major capitals`)
