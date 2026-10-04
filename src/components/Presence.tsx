@@ -2,7 +2,7 @@ import type { ReactNode } from 'react'
 import AnimatedLogo from './AnimatedLogo'
 import ContraGroupMark from './ContraGroupMark'
 import FrameLogo from './FrameLogo'
-import contraInvestmentWordmark from '../assets/contra-investment-wordmark.png'
+import ContraInvestmentLogo from './ContraInvestmentLogo'
 import winGroupFrame from '../assets/win-group-logo-frame.png'
 import winGroupStill from '../assets/win-group-logo-still.png'
 import winEuropeFrame from '../assets/win-europe-logo-frame.png'
@@ -18,13 +18,7 @@ const members: { name: string; wide?: boolean; logo: ReactNode }[] = [
   {
     name: 'Contra Investment',
     wide: true,
-    logo: (
-      // "EST. 2006" is live text (trimmed off the image) so it can be sized freely.
-      <div className="w-full">
-        <img src={contraInvestmentWordmark} alt="Contra Investment" className="block w-full" />
-        <p className="mt-1 pr-[5%] text-right text-[15px] font-bold tracking-wider text-gold">EST. 2006</p>
-      </div>
-    ),
+    logo: <ContraInvestmentLogo />,
   },
   { name: 'WIN HOLDING', logo: <AnimatedLogo className={`${logoClass} aspect-[586/751]`} /> },
   {

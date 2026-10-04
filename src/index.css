@@ -138,3 +138,27 @@ body {
     animation: none;
   }
 }
+
+/* Letter-by-letter growth wave (Contra Investment logo). Set --i per letter. */
+.letter-wave {
+  transform-origin: 50% 100%;
+  animation: letter-wave 4.5s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 0.12s);
+}
+
+@keyframes letter-wave {
+  0%,
+  12%,
+  100% {
+    transform: scale(1);
+  }
+  6% {
+    transform: scale(1.35);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .letter-wave {
+    animation: none;
+  }
+}
