@@ -162,3 +162,24 @@ body {
     animation: none;
   }
 }
+
+/* Group logos: plane climbs from below each logo to beyond the section top. */
+.plane-up {
+  opacity: 0;
+  animation: plane-up 7s linear infinite backwards;
+}
+
+@keyframes plane-up {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  6%,
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-700px);
+    opacity: 0;
+  }
+}

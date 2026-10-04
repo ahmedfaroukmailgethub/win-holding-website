@@ -2,12 +2,12 @@
 // strip placed in the page flow, so flight paths sit in the gaps between the
 // hero's content at any screen size. Decorative only; hidden for reduced motion.
 
-function Plane({ className = '' }: { className?: string }) {
+export function Plane({ className = '', up = false }: { className?: string; up?: boolean }) {
   return (
     <svg viewBox="0 0 24 24" className={className} aria-hidden>
-      {/* Airplane silhouette (top view), nose pointing right */}
+      {/* Airplane silhouette (top view), nose pointing right (or up) */}
       <path
-        transform="rotate(90 12 12)"
+        transform={up ? undefined : 'rotate(90 12 12)'}
         fill="currentColor"
         d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"
       />
