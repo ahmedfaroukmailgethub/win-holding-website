@@ -6,7 +6,7 @@ export const offices = [
 ]
 
 export const contact = {
-  email: 'ahmed.farouk@winholding.win',
+  email: 'info@winholding.win',
   website: 'www.winholding.win',
   phones: [
     { label: 'UK', number: '+44 75 4417 6586' },
