@@ -1,4 +1,11 @@
 import AnimatedLogo from './AnimatedLogo'
+import { FlagEU, FlagUAE, FlagUK } from './Flags'
+
+const locations = [
+  { name: 'London', Flag: FlagUK },
+  { name: 'Dubai', Flag: FlagUAE },
+  { name: 'European Union', Flag: FlagEU },
+]
 
 export default function Hero() {
   return (
@@ -7,7 +14,15 @@ export default function Hero() {
 
       <div className="relative mx-auto grid w-full max-w-7xl items-center gap-14 px-6 pb-16 pt-40 lg:grid-cols-[1.15fr_1fr] lg:pt-32">
         <div className="order-2 lg:order-1">
-          <p className="eyebrow">London · Dubai · European Union</p>
+          <p className="eyebrow flex flex-wrap items-center gap-x-3 gap-y-2">
+            {locations.map(({ name, Flag }, i) => (
+              <span key={name} className="inline-flex items-center gap-2">
+                {i > 0 && <span aria-hidden>·</span>}
+                {name}
+                <Flag />
+              </span>
+            ))}
+          </p>
           <h1 className="mt-6 font-serif text-5xl font-medium leading-[1.05] text-ink sm:text-6xl lg:text-7xl">
             Building enduring businesses, <span className="italic text-gold-dark">sky &amp; beyond.</span>
           </h1>
