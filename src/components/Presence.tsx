@@ -2,7 +2,7 @@ import { offices } from '../data'
 
 export default function Presence() {
   return (
-    <section id="presence" className="bg-sand py-24 sm:py-32">
+    <section id="group" className="bg-sand py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-2xl">
           <p className="eyebrow">Global Presence</p>
