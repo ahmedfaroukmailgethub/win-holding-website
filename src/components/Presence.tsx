@@ -5,7 +5,7 @@ export default function Presence() {
     <section id="group" className="bg-sand py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-2xl">
-          <p className="eyebrow">Global Presence</p>
+          <p className="eyebrow !text-sm sm:!text-base">Global Group</p>
           <h2 className="mt-5 font-serif text-4xl font-medium text-ink sm:text-5xl">Four countries, one standard.</h2>
         </div>
         <div className="mt-16 grid gap-px bg-gold/25 sm:grid-cols-2 lg:grid-cols-4">
