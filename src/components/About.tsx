@@ -1,5 +1,8 @@
 import AnimatedLogo from './AnimatedLogo'
-import winGroupLogo from '../assets/win-group-logo.png'
+import FrameLogo from './FrameLogo'
+import winGroupFrame from '../assets/win-group-logo-frame.png'
+import winGroupStill from '../assets/win-group-logo-still.png'
+import frames from '../assets/frame-logos.json'
 import PlaneLane from './PlaneLane'
 
 // Company names in the body copy, set in the logo gold.
@@ -23,7 +26,13 @@ export default function About() {
             </div>
           </div>
           <div className="relative mx-auto mt-14 w-fit">
-            <img src={winGroupLogo} alt="WIN GROUP — World Innovation Network" className="block h-48 w-auto sm:h-56" />
+            <FrameLogo
+              {...frames['win-group-logo']}
+              frame={winGroupFrame}
+              still={winGroupStill}
+              alt="WIN GROUP — World Innovation Network"
+              className="block h-48 sm:h-56"
+            />
             {/* Flight path through the W */}
             <div className="absolute left-1/2 top-[44%] -translate-y-1/2">
               <PlaneLane direction="ltr" centered />
