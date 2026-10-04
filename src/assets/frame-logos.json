@@ -1,0 +1,20 @@
+{
+  "win-group-logo": {
+    "width": 372,
+    "height": 488,
+    "cx": 185.5,
+    "cy": 186
+  },
+  "win-europe-logo": {
+    "width": 391,
+    "height": 520,
+    "cx": 195,
+    "cy": 197.5
+  },
+  "win-wings-logo": {
+    "width": 399,
+    "height": 520,
+    "cx": 199,
+    "cy": 202.5
+  }
+}
