@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import logo from '../assets/win-holding-logo.png'
+import ContraGroupMark from './ContraGroupMark'
 
 const links = [
   { href: '#about', label: 'About' },
@@ -47,10 +48,7 @@ export default function Header() {
 
         <div className="hidden flex-col items-center gap-1.5 lg:flex">
           <span className="text-[11px] font-medium uppercase tracking-[0.2em] text-ink/60">Member of:</span>
-          <span className="font-wordmark text-base tracking-[0.18em] text-ink">
-            CONTRA GROUP
-            <span aria-hidden className="ml-0.5 inline-block h-[6px] w-[6px] bg-[#ff4136]" />
-          </span>
+          <ContraGroupMark className="text-base" />
         </div>
 
         <button
