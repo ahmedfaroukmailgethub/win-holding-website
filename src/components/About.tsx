@@ -1,9 +1,10 @@
 import AnimatedLogo from './AnimatedLogo'
 import winGroupLogo from '../assets/win-group-logo.png'
+import PlaneLane from './PlaneLane'
 
 export default function About() {
   return (
-    <section id="about" className="bg-white py-24 sm:py-32">
+    <section id="about" className="overflow-hidden bg-white py-24 sm:py-32">
       <div className="mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-2 lg:gap-24">
         <div>
           <p className="eyebrow">About WIN HOLDING</p>
@@ -11,8 +12,20 @@ export default function About() {
             A Focused Group with a Global Outlook.
           </h2>
           <div className="mt-6 h-px w-20 bg-gold" />
-          <AnimatedLogo className="mx-auto mt-12 block aspect-[586/751] h-56 sm:h-64" />
-          <img src={winGroupLogo} alt="WIN GROUP — World Innovation Network" className="mx-auto mt-14 h-48 w-auto sm:h-56" />
+          <div className="relative mx-auto mt-12 w-fit">
+            <AnimatedLogo className="block aspect-[586/751] h-56 sm:h-64" />
+            {/* Flight path through the W */}
+            <div className="absolute left-1/2 top-[42%] -translate-y-1/2">
+              <PlaneLane direction="rtl" centered />
+            </div>
+          </div>
+          <div className="relative mx-auto mt-14 w-fit">
+            <img src={winGroupLogo} alt="WIN GROUP — World Innovation Network" className="block h-48 w-auto sm:h-56" />
+            {/* Flight path through the W */}
+            <div className="absolute left-1/2 top-[44%] -translate-y-1/2">
+              <PlaneLane direction="ltr" centered />
+            </div>
+          </div>
         </div>
         <div className="space-y-6 text-justify text-base font-light leading-relaxed text-ink/80">
           <p>

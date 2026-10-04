@@ -15,18 +15,22 @@ function Plane({ className = '' }: { className?: string }) {
   )
 }
 
-type Props = { direction: 'rtl' | 'ltr'; className?: string }
+// centered: a zero-width lane anchored on an off-centre element (e.g. a logo in a
+// side column); the plane travels from beyond one viewport edge to beyond the other.
+type Props = { direction: 'rtl' | 'ltr'; centered?: boolean; className?: string }
 
-export default function PlaneLane({ direction, className = '' }: Props) {
+export default function PlaneLane({ direction, centered = false, className = '' }: Props) {
+  const width = centered ? 'w-0' : 'w-screen'
+  const anim = `plane-${direction}${centered ? '-wide' : ''}`
   return (
-    <div aria-hidden className={`pointer-events-none relative h-6 w-screen shrink-0 motion-reduce:invisible ${className}`}>
+    <div aria-hidden className={`pointer-events-none relative h-6 ${width} shrink-0 motion-reduce:invisible ${className}`}>
       {direction === 'rtl' ? (
-        <div className="plane-rtl absolute top-0 flex items-center text-gold">
+        <div className={`${anim} absolute top-0 flex items-center text-gold`}>
           <Plane className="h-6 w-6 -scale-x-100" />
           <span className="ml-1 h-px w-24 bg-gradient-to-r from-gold/50 to-transparent" />
         </div>
       ) : (
-        <div className="plane-ltr absolute top-0 flex items-center text-gold">
+        <div className={`${anim} absolute top-0 flex items-center text-gold`}>
           <span className="mr-1 h-px w-24 bg-gradient-to-l from-gold/50 to-transparent" />
           <Plane className="h-6 w-6" />
         </div>

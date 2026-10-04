@@ -50,6 +50,8 @@ body {
 
 /* Hero airplanes: cross the full width with a gentle rise and dip. */
 .plane-rtl,
+.plane-rtl-wide,
+.plane-ltr-wide,
 .plane-ltr {
   left: 0;
   will-change: transform;
@@ -84,5 +86,32 @@ body {
   }
   100% {
     transform: translate(105vw, 0);
+  }
+}
+
+/* Lanes anchored on an off-centre logo: start/end beyond either viewport edge. */
+.plane-rtl-wide {
+  animation: plane-rtl-wide 28s linear infinite;
+}
+
+.plane-ltr-wide {
+  animation: plane-ltr-wide 32s linear 6s infinite backwards;
+}
+
+@keyframes plane-rtl-wide {
+  from {
+    transform: translateX(110vw);
+  }
+  to {
+    transform: translateX(-110vw);
+  }
+}
+
+@keyframes plane-ltr-wide {
+  from {
+    transform: translateX(-110vw);
+  }
+  to {
+    transform: translateX(110vw);
   }
 }
