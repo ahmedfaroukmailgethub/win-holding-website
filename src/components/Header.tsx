@@ -4,6 +4,7 @@ import logo from '../assets/win-holding-logo.png'
 const links = [
   { href: '#about', label: 'About' },
   { href: '#vision', label: 'Vision' },
+  { href: '#mission', label: 'Mission' },
   { href: '#presence', label: 'Presence' },
   { href: '#contact', label: 'Contact' },
 ]
