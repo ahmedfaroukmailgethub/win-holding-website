@@ -25,7 +25,7 @@ export default function Hero() {
           ))}
         </p>
         <h1 className="mt-6 font-serif text-5xl font-medium leading-[1.05] text-ink sm:text-6xl lg:text-7xl">
-          Building enduring businesses, <span className="italic text-gold-dark">sky &amp; beyond.</span>
+          Empowering Possibilities <span className="italic text-gold-dark">Beyond the Sky</span>
         </h1>
         <p className="mt-8 max-w-2xl text-base font-light leading-relaxed text-ink/70 sm:text-lg">
           WIN HOLDING is a London-headquartered holding company with wholly owned operations in aviation services,
