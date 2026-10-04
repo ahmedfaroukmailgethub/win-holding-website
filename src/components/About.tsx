@@ -1,3 +1,5 @@
+import logo from '../assets/win-holding-logo.png'
+
 const stats = [
   { value: '5', label: 'Group entities' },
   { value: '4', label: 'Countries' },
@@ -14,6 +16,7 @@ export default function About() {
             A focused group with a global outlook.
           </h2>
           <div className="mt-6 h-px w-20 bg-gold" />
+          <img src={logo} alt="WIN HOLDING — Sky & Beyond" className="mt-12 h-56 w-auto sm:h-64" />
         </div>
         <div className="space-y-6 text-base font-light leading-relaxed text-ink/80">
           <p>
