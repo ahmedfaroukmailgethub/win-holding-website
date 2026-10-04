@@ -1,7 +1,14 @@
+import AnimatedLogo from './AnimatedLogo'
+
 export default function Vision() {
   return (
-    <section id="vision" className="bg-sand py-24 sm:py-32">
-      <div className="mx-auto max-w-4xl px-6 text-center">
+    <section id="vision" className="relative overflow-hidden bg-sand py-24 sm:py-32">
+      {/* Faint logo watermark behind the statement */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 flex items-center justify-center">
+        <AnimatedLogo className="aspect-[586/751] h-[90%] opacity-[0.08]" />
+      </div>
+
+      <div className="relative mx-auto max-w-4xl px-6 text-center">
         <p className="eyebrow">Vision</p>
         <h2 className="mt-5 font-serif text-4xl font-medium text-ink sm:text-5xl">Our Vision</h2>
         <div className="mx-auto mt-6 h-px w-20 bg-gold" />
