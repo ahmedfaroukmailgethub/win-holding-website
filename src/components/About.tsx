@@ -1,11 +1,5 @@
 import AnimatedLogo from './AnimatedLogo'
 
-const stats = [
-  { value: '5', label: 'Group entities' },
-  { value: '4', label: 'Countries' },
-  { value: '100%', label: 'Direct ownership' },
-]
-
 export default function About() {
   return (
     <section id="about" className="bg-white py-24 sm:py-32">
@@ -28,14 +22,6 @@ export default function About() {
             Every company in the group is wholly owned, giving us clear governance, aligned standards and the ability to
             commit long term to our partners, people and markets.
           </p>
-          <dl className="grid grid-cols-3 gap-6 border-t border-gold/30 pt-10">
-            {stats.map((s) => (
-              <div key={s.label} className="flex flex-col-reverse">
-                <dt className="mt-2 text-[11px] font-medium uppercase tracking-[0.2em] text-ink/60">{s.label}</dt>
-                <dd className="font-serif text-4xl text-gold sm:text-5xl">{s.value}</dd>
-              </div>
-            ))}
-          </dl>
         </div>
       </div>
     </section>
