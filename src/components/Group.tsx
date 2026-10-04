@@ -27,10 +27,10 @@ export default function Group() {
   const { winGroup, winEurope, winWings, airportsCatering } = companies
 
   return (
-    <section id="group" className="bg-sand py-24 sm:py-32">
+    <section id="vision" className="bg-sand py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="eyebrow">Our Group</p>
+          <p className="eyebrow">Vision</p>
           <h2 className="mt-5 font-serif text-4xl font-medium text-ink sm:text-5xl">Corporate structure</h2>
           <p className="mt-6 font-light leading-relaxed text-ink/70">
             A clear, wholly owned structure — from the ultimate holding company in London to our operating companies on

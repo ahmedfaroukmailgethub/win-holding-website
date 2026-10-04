@@ -41,7 +41,7 @@ export default function Hero() {
         </p>
         <div className="mt-12 flex flex-wrap justify-center gap-4">
           <a
-            href="#group"
+            href="#vision"
             className="bg-gold px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-white transition hover:bg-gold-dark"
           >
             Explore Our Group
