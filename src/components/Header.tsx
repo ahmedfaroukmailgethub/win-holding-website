@@ -49,7 +49,7 @@ export default function Header() {
           <span className="text-[11px] font-medium uppercase tracking-[0.2em] text-ink/60">Member of:</span>
           <span className="font-wordmark text-lg tracking-[0.18em] text-ink">
             CONTRA GROUP
-            <span aria-hidden className="ml-0.5 inline-block h-[7px] w-[7px] rounded-full bg-[#ff4136]" />
+            <span aria-hidden className="ml-0.5 inline-block h-[7px] w-[7px] bg-[#ff4136]" />
           </span>
         </div>
 
