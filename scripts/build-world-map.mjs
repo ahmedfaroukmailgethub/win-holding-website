@@ -40,8 +40,26 @@ const projection = geoMercator()
 
 const d = geoPath(projection).digits(1)(land)
 
-// Small black dot on every national capital (skipping any outside the cropped frame).
+// Major capitals only: G20 members plus key regional hubs, spread across regions.
+const MAJOR = new Set([
+  // G20
+  'Washington, D.C.', 'Ottawa', 'Mexico City', 'Brasília', 'Buenos Aires', 'London', 'Paris', 'Berlin', 'Rome',
+  'Moscow', 'Ankara', 'Riyadh', 'New Delhi', 'Beijing', 'Tokyo', 'Seoul', 'Jakarta', 'Canberra', 'Pretoria',
+  // Europe
+  'Madrid', 'Lisbon', 'Brussels', 'Amsterdam', 'Vienna', 'Warsaw', 'Stockholm', 'Athens', 'Belgrade', 'Ljubljana',
+  // Middle East & North Africa
+  'Abu Dhabi', 'Doha', 'Kuwait City', 'Muscat', 'Manama', 'Amman', 'Baghdad', 'Tehran', 'Cairo', 'Rabat', 'Algiers',
+  // Sub-Saharan Africa
+  'Abuja', 'Nairobi', 'Addis Ababa', 'Accra', 'Dakar', 'Kinshasa', 'Luanda',
+  // Asia
+  'Islamabad', 'Dhaka', 'Bangkok', 'Hanoi', 'Kuala Lumpur', 'Singapore', 'Manila', 'Astana', 'Tashkent',
+  // Americas & Oceania
+  'Havana', 'Bogotá', 'Caracas', 'Lima', 'Santiago', 'Wellington',
+])
+
+// Small black dot on each major capital (skipping any outside the cropped frame).
 const dots = capitals
+  .filter(([city]) => MAJOR.has(city))
   .map(([, lat, lng]) => projection([lng, lat]))
   .filter(([x, y]) => x >= 0 && x <= W && y >= 0 && y <= H)
   .map(([x, y]) => `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="1.6"/>`)
@@ -66,4 +84,4 @@ const pins = offices.map(({ city, lat, lng }) => {
 })
 writeFileSync(new URL('../src/assets/world-map-pins.json', import.meta.url), JSON.stringify(pins, null, 2) + '\n')
 
-console.log(`world-map.svg ${W}x${H}, ${(svg.length / 1024).toFixed(1)} KB, ${capitals.length} capitals`, pins)
+console.log(`world-map.svg ${W}x${H}, ${(svg.length / 1024).toFixed(1)} KB, ${MAJOR.size} major capitals`, pins)
