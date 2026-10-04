@@ -2,6 +2,9 @@ import AnimatedLogo from './AnimatedLogo'
 import winGroupLogo from '../assets/win-group-logo.png'
 import PlaneLane from './PlaneLane'
 
+// Company names in the body copy, set in the logo gold.
+const Brand = ({ children }: { children: string }) => <span className="text-gold">{children}</span>
+
 export default function About() {
   return (
     <section id="about" className="overflow-hidden bg-white py-24 sm:py-32">
@@ -29,15 +32,15 @@ export default function About() {
         </div>
         <div className="space-y-6 text-justify text-base font-light leading-relaxed text-ink/80">
           <p>
-            From our headquarters in London, WIN HOLDING owns, develops, and strategically guides a diversified portfolio
+            From our headquarters in London, <Brand>WIN HOLDING</Brand> owns, develops, and strategically guides a diversified portfolio
             of companies serving the global aviation industry and the wider ecosystem that surrounds it. Our vision is to
             build an integrated aviation services platform that combines operational excellence, innovation, and long-term
             value creation across international markets.
           </p>
           <p>
-            Through WIN GROUP in Dubai, we lead our regional presence across the Middle East, supported by an
+            Through <Brand>WIN GROUP</Brand> in Dubai, we lead our regional presence across the Middle East, supported by an
             innovation-driven platform dedicated to elevating the customer journey, enhancing service quality, and
-            introducing smarter, more efficient solutions across the aviation experience. Through WIN EUROPE in Ljubljana,
+            introducing smarter, more efficient solutions across the aviation experience. Through <Brand>WIN EUROPE</Brand> in Ljubljana,
             we extend our reach across the European Union, connecting markets, partners, and opportunities while expanding
             our capabilities across a broader spectrum of aviation services — on the ground and beyond the sky.
           </p>
@@ -47,7 +50,7 @@ export default function About() {
             businesses, and create sustainable value in every market we serve.
           </p>
           <p>
-            At WIN HOLDING, our ambition reaches beyond providing aviation services. We seek to redefine experiences,
+            At <Brand>WIN HOLDING</Brand>, our ambition reaches beyond providing aviation services. We seek to redefine experiences,
             unlock new opportunities, and shape the next generation of aviation businesses.
           </p>
           <p className="font-medium text-gold">Empowering Possibilities Beyond the Sky.</p>
