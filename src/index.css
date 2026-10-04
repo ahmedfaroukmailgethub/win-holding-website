@@ -68,7 +68,7 @@ body {
     transform: translate(105vw, 0);
   }
   50% {
-    transform: translate(45vw, -18px);
+    transform: translate(45vw, -10px);
   }
   100% {
     transform: translate(-15vw, 0);
@@ -80,7 +80,7 @@ body {
     transform: translate(-15vw, 0);
   }
   50% {
-    transform: translate(45vw, 14px);
+    transform: translate(45vw, -4px);
   }
   100% {
     transform: translate(105vw, 0);

@@ -14,8 +14,14 @@ export default function Hero() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_30%,rgba(174,140,99,0.14),transparent_60%)]" />
 
       <div className="relative mx-auto flex w-full max-w-4xl flex-col items-center px-6 pb-20 pt-36 text-center sm:pt-40">
-        <AnimatedLogo className="aspect-[586/751] w-56 sm:w-72 lg:w-80" />
-        <PlaneLane direction="rtl" className="mt-8 sm:mt-10" />
+        <div className="relative">
+          <AnimatedLogo className="block aspect-[586/751] w-56 sm:w-72 lg:w-80" />
+          {/* Flight path across the middle of the W */}
+          <div className="absolute left-1/2 top-[42%] -translate-x-1/2 -translate-y-1/2">
+            <PlaneLane direction="rtl" />
+          </div>
+        </div>
+        <PlaneLane direction="ltr" className="mt-8 sm:mt-10" />
 
         <p className="eyebrow mt-8 sm:mt-10 flex flex-wrap items-center justify-center gap-x-3 gap-y-2">
           {locations.map(({ name, Flag }, i) => (
@@ -47,7 +53,6 @@ export default function Hero() {
             Get in Touch
           </a>
         </div>
-        <PlaneLane direction="ltr" className="mt-14" />
       </div>
     </section>
   )
