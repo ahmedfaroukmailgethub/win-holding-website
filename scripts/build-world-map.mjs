@@ -4,6 +4,7 @@
 import { readFileSync, writeFileSync } from 'node:fs'
 import { geoMercator, geoPath } from 'd3-geo'
 import { feature } from 'topojson-client'
+import capitals from './capitals.mjs'
 
 const offices = [
   { city: 'London', lat: 51.5074, lng: -0.1278 },
@@ -39,6 +40,13 @@ const projection = geoMercator()
 
 const d = geoPath(projection).digits(1)(land)
 
+// Small black dot on every national capital (skipping any outside the cropped frame).
+const dots = capitals
+  .map(([, lat, lng]) => projection([lng, lat]))
+  .filter(([x, y]) => x >= 0 && x <= W && y >= 0 && y <= H)
+  .map(([x, y]) => `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="1.6"/>`)
+  .join('')
+
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}">
   <defs>
     <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
@@ -47,6 +55,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}">
     </linearGradient>
   </defs>
   <path fill="url(#g)" d="${d}"/>
+  <g fill="#000">${dots}</g>
 </svg>
 `
 writeFileSync(new URL('../src/assets/world-map.svg', import.meta.url), svg)
@@ -57,4 +66,4 @@ const pins = offices.map(({ city, lat, lng }) => {
 })
 writeFileSync(new URL('../src/assets/world-map-pins.json', import.meta.url), JSON.stringify(pins, null, 2) + '\n')
 
-console.log(`world-map.svg ${W}x${H}, ${(svg.length / 1024).toFixed(1)} KB`, pins)
+console.log(`world-map.svg ${W}x${H}, ${(svg.length / 1024).toFixed(1)} KB, ${capitals.length} capitals`, pins)
