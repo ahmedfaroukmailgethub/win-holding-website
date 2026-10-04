@@ -32,7 +32,7 @@ export default function Hero() {
         </div>
 
         <div className="order-1 flex justify-center lg:order-2">
-          <AnimatedLogo className="aspect-[586/751] w-56 drop-shadow-[0_20px_40px_rgba(174,140,99,0.15)] sm:w-72 lg:w-96" />
+          <AnimatedLogo className="aspect-[586/751] w-56 sm:w-72 lg:w-96" />
         </div>
       </div>
     </section>

@@ -29,19 +29,11 @@ body {
   @apply text-xs font-medium uppercase tracking-[0.3em] text-gold-dark;
 }
 
-/* Rings of the logo circle continuously around the W while gently swelling. */
-.logo-spin,
-.logo-waves {
+/* Rings of the logo circle continuously around the W. */
+.logo-spin {
   transform-box: view-box;
   transform-origin: 288.5px 280.5px;
-}
-
-.logo-spin {
   animation: logo-spin 24s linear infinite;
-}
-
-.logo-waves {
-  animation: logo-waves 5s ease-in-out infinite;
 }
 
 @keyframes logo-spin {
@@ -50,12 +42,8 @@ body {
   }
 }
 
-@keyframes logo-waves {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.035);
+@media (prefers-reduced-motion: reduce) {
+  .logo-spin {
+    animation: none;
   }
 }
