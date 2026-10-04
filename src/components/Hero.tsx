@@ -13,7 +13,7 @@ export default function Hero() {
     <section id="top" className="relative flex min-h-screen items-center overflow-hidden bg-ivory">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_30%,rgba(174,140,99,0.14),transparent_60%)]" />
 
-      <div className="relative mx-auto flex w-full max-w-4xl flex-col items-center px-6 pb-20 pt-36 text-center sm:pt-40">
+      <div className="relative mx-auto flex w-full max-w-4xl flex-col items-center px-6 pb-20 pt-28 text-center sm:pt-40">
         <div className="relative">
           <AnimatedLogo className="block aspect-[586/751] w-56 sm:w-72 lg:w-80" />
           {/* Flight path across the middle of the W */}

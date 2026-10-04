@@ -14,16 +14,17 @@ type StatementProps = {
 // right to left through the watermark's W.
 function Statement({ id, label, title, className, children }: StatementProps) {
   return (
-    <section id={id} className={`relative overflow-hidden py-32 sm:py-44 ${className}`}>
+    <section id={id} className={`relative overflow-hidden py-24 sm:py-44 ${className}`}>
+      {/* Watermark fills the section height, capped on phones so the whole logo fits the width */}
       <div
         aria-hidden
-        className="pointer-events-none absolute left-1/2 top-1/2 h-full -translate-x-1/2 -translate-y-1/2 opacity-[0.08]"
+        className="pointer-events-none absolute left-1/2 top-1/2 h-full max-h-[125vw] -translate-x-1/2 -translate-y-1/2"
       >
-        <AnimatedLogo className="block aspect-[586/751] h-full" />
-      </div>
-      {/* The watermark fills the section height, so its W sits at ~42% */}
-      <div className="absolute inset-x-0 top-[42%] -translate-y-1/2">
-        <PlaneLane direction="rtl" />
+        <AnimatedLogo className="block aspect-[586/751] h-full opacity-[0.08]" />
+        {/* The logo's W sits at ~42% of its height */}
+        <div className="absolute left-1/2 top-[42%] -translate-x-1/2 -translate-y-1/2">
+          <PlaneLane direction="rtl" />
+        </div>
       </div>
 
       <div className="relative mx-auto max-w-4xl px-6 text-center">

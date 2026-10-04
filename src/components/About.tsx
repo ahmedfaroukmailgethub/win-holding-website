@@ -39,7 +39,7 @@ export default function About() {
             </div>
           </div>
         </div>
-        <div className="space-y-6 text-justify text-base font-light leading-relaxed text-ink/80">
+        <div className="space-y-6 text-base font-light leading-relaxed text-ink/80 sm:text-justify">
           <p>
             From our headquarters in London, <Brand>WIN HOLDING</Brand> owns, develops, and strategically guides a diversified portfolio
             of companies serving the global aviation industry and the wider ecosystem that surrounds it. Our vision is to

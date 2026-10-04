@@ -65,7 +65,7 @@ export default function Presence() {
     <section id="group" className="relative overflow-hidden bg-sand py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <p className="eyebrow text-center !text-sm sm:!text-base">Global Group</p>
-        <h2 className="mt-5 text-center font-serif text-4xl font-medium text-ink sm:text-5xl">Across Borders, One Vision, One Standard</h2>
+        <h2 className="mt-5 text-center font-serif text-3xl font-medium text-ink sm:text-4xl lg:text-5xl">Across Borders, One Vision, One Standard</h2>
         <ContraGroupMark gold blink className="mt-10 block text-center text-2xl sm:text-3xl" />
 
         <ul className="mt-14 flex flex-wrap items-center justify-center gap-x-12 gap-y-10">

@@ -1,9 +1,11 @@
 import { useEffect, useRef } from 'react'
 import map from '../assets/world-map-capitals.json'
 
-// Animated round trips between random major capitals, drawn over the world map.
-// Each flight: a dashed arc fades in, a plane flies out and back, the arc fades
-// out, and a new random route takes its place. Runs only while on screen.
+// Capital dots plus animated round trips between random major capitals, drawn
+// over the world map. Each flight: a dashed arc fades in, a plane flies out and
+// back, the arc fades out, and a new random route takes its place. Runs only
+// while on screen. Dots, planes and lines keep a constant on-screen size, so
+// they stay visible on phones as well as large screens.
 
 const SVG = 'http://www.w3.org/2000/svg'
 const FLIGHTS = 14 // planes in the air at once
@@ -12,6 +14,8 @@ const PAUSE = 700 // ms on the ground at the far end
 const FADE = 600 // ms for the route line to fade in / out
 const MIN_DIST = 120
 const MAX_DIST = 520
+const DOT_PX = 1.6 // capital dot radius on screen
+const planePx = (mapPx: number) => (mapPx < 600 ? 10 : 12) // plane length on screen
 
 // Airplane silhouette (nose pointing +x), centred on the origin, ~12 units long.
 const PLANE =
@@ -49,7 +53,35 @@ export default function MapFlights() {
 
   useEffect(() => {
     const svg = ref.current
-    if (!svg || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    if (!svg) return
+
+    // Map units per screen pixel, kept current as the map resizes.
+    let upp = 1
+    let planeScale = 0.5
+    const dots = capitals.map(({ x, y }) => {
+      const c = document.createElementNS(SVG, 'circle')
+      c.setAttribute('cx', String(x))
+      c.setAttribute('cy', String(y))
+      c.setAttribute('fill', '#000')
+      svg.appendChild(c)
+      return c
+    })
+    const resize = () => {
+      const px = svg.clientWidth || map.width
+      upp = map.width / px
+      planeScale = (planePx(px) * upp) / 24
+      dots.forEach((c) => c.setAttribute('r', String(DOT_PX * upp)))
+    }
+    resize()
+    const ro = new ResizeObserver(resize)
+    ro.observe(svg)
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return () => {
+        ro.disconnect()
+        dots.forEach((c) => c.remove())
+      }
+    }
 
     const flights: Flight[] = []
     let raf = 0
@@ -60,13 +92,15 @@ export default function MapFlights() {
       route.setAttribute('d', randomRoute())
       route.setAttribute('fill', 'none')
       route.setAttribute('stroke', '#2d2d2d')
+      // Line width and dashes in screen pixels, whatever the map's size.
+      route.setAttribute('vector-effect', 'non-scaling-stroke')
       route.setAttribute('stroke-width', '0.8')
       route.setAttribute('stroke-dasharray', '3 3')
       route.setAttribute('opacity', '0')
       const plane = document.createElementNS(SVG, 'g')
       const shape = document.createElementNS(SVG, 'path')
       shape.setAttribute('d', PLANE)
-      shape.setAttribute('transform', 'scale(0.5) translate(-12 -12) rotate(90 12 12)')
+      shape.setAttribute('transform', 'translate(-12 -12) rotate(90 12 12)')
       shape.setAttribute('fill', '#1a1a1a')
       plane.appendChild(shape)
       plane.setAttribute('opacity', '0')
@@ -108,7 +142,7 @@ export default function MapFlights() {
         const r = f.route.getPointAtLength(Math.max(0, at - 1))
         let angle = (Math.atan2(q.y - r.y, q.x - r.x) * 180) / Math.PI
         if (!outbound) angle += 180
-        f.plane.setAttribute('transform', `translate(${p.x} ${p.y}) rotate(${angle})`)
+        f.plane.setAttribute('transform', `translate(${p.x} ${p.y}) rotate(${angle}) scale(${planeScale})`)
         f.plane.setAttribute('opacity', fly >= 0 && fly <= f.legMs * 2 + PAUSE ? '1' : '0')
       })
       raf = requestAnimationFrame(step)
@@ -130,8 +164,10 @@ export default function MapFlights() {
     io.observe(svg)
     return () => {
       io.disconnect()
+      ro.disconnect()
       stop()
       flights.forEach((f) => (f.route.remove(), f.plane.remove()))
+      dots.forEach((c) => c.remove())
     }
   }, [])
 
