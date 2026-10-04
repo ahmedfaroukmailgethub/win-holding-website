@@ -14,14 +14,28 @@ export default function About() {
         </div>
         <div className="space-y-6 text-base font-light leading-relaxed text-ink/80">
           <p>
-            From our head office in London, WIN HOLDING owns and guides a portfolio of operating companies serving the
-            aviation sector and the businesses around it. Through WIN GROUP in Dubai we lead our regional platform, and
-            through WIN EUROPE in Ljubljana we serve partners across the European Union.
+            From our headquarters in London, WIN HOLDING owns, develops, and strategically guides a diversified portfolio
+            of companies serving the global aviation industry and the wider ecosystem that surrounds it. Our vision is to
+            build an integrated aviation services platform that combines operational excellence, innovation, and long-term
+            value creation across international markets.
           </p>
           <p>
-            Every company in the group is wholly owned, giving us clear governance, aligned standards and the ability to
-            commit long term to our partners, people and markets.
+            Through WIN GROUP in Dubai, we lead our regional presence across the Middle East, supported by an
+            innovation-driven platform dedicated to elevating the customer journey, enhancing service quality, and
+            introducing smarter, more efficient solutions across the aviation experience. Through WIN EUROPE in Ljubljana,
+            we extend our reach across the European Union, connecting markets, partners, and opportunities while expanding
+            our capabilities across a broader spectrum of aviation services — on the ground and beyond the sky.
           </p>
+          <p>
+            Across the Group, we are united by clear governance, shared standards, operational excellence, and one
+            strategic vision. This enables us to build enduring partnerships, invest confidently in our people and
+            businesses, and create sustainable value in every market we serve.
+          </p>
+          <p>
+            At WIN HOLDING, our ambition reaches beyond providing aviation services. We seek to redefine experiences,
+            unlock new opportunities, and shape the next generation of aviation businesses.
+          </p>
+          <p className="font-medium text-gold">Empowering Possibilities Beyond the Sky.</p>
         </div>
       </div>
     </section>
