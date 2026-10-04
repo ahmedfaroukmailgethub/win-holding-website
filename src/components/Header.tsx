@@ -46,7 +46,7 @@ export default function Header() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 min-[1120px]:flex">
+        <div className="hidden flex-col items-center gap-1.5 lg:flex">
           <span className="text-[11px] font-medium uppercase tracking-[0.2em] text-ink/60">Member of:</span>
           <img src={contraGroupLogo} alt="Contra Group" className="h-5 w-auto" />
         </div>
