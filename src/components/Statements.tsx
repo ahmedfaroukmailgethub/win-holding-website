@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import AnimatedLogo from './AnimatedLogo'
+import PlaneLane from './PlaneLane'
 
 type StatementProps = {
   id: string
@@ -9,7 +10,8 @@ type StatementProps = {
   children: ReactNode
 }
 
-// Centred statement over a faint rotating logo watermark.
+// Centred statement over a faint rotating logo watermark, with a plane flying
+// right to left through the watermark's W.
 function Statement({ id, label, title, className, children }: StatementProps) {
   return (
     <section id={id} className={`relative overflow-hidden py-32 sm:py-44 ${className}`}>
@@ -18,6 +20,10 @@ function Statement({ id, label, title, className, children }: StatementProps) {
         className="pointer-events-none absolute left-1/2 top-1/2 h-full -translate-x-1/2 -translate-y-1/2 opacity-[0.08]"
       >
         <AnimatedLogo className="block aspect-[586/751] h-full" />
+      </div>
+      {/* The watermark fills the section height, so its W sits at ~42% */}
+      <div className="absolute inset-x-0 top-[42%] -translate-y-1/2">
+        <PlaneLane direction="rtl" />
       </div>
 
       <div className="relative mx-auto max-w-4xl px-6 text-center">
