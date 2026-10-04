@@ -1,7 +1,7 @@
 import Header from './components/Header'
 import Hero from './components/Hero'
 import About from './components/About'
-import Group from './components/Group'
+import Vision from './components/Vision'
 import Presence from './components/Presence'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
@@ -13,7 +13,7 @@ export default function App() {
       <main>
         <Hero />
         <About />
-        <Group />
+        <Vision />
         <Presence />
         <Contact />
       </main>
