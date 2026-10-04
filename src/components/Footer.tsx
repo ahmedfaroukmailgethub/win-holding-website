@@ -10,7 +10,7 @@ export default function Footer() {
           <span className="text-[11px] uppercase tracking-[0.25em]">Member of</span>
           <img src={contraLogo} alt="Contra Investment" className="h-9 w-auto" />
         </div>
-        <img src={logo} alt="WIN HOLDING — Sky & Beyond" className="h-24 w-auto py-1 sm:h-[115px]" />
+        <img src={logo} alt="WIN HOLDING — Sky & Beyond" className="h-28 w-auto py-1 sm:h-36" />
         <p className="text-xs md:justify-self-end">© {new Date().getFullYear()} WIN HOLDING. All rights reserved.</p>
       </div>
     </footer>
