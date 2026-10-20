@@ -9,7 +9,7 @@ type Props = {
 export default function ContraGroupMark({ className = '', gold = false, blink = false }: Props) {
   return (
     <span className={`font-wordmark tracking-[0.18em] ${gold ? 'text-gold' : 'text-ink'} ${className}`}>
-      CONTRA GROUP
+      THE WIN GROUP
       <span
         aria-hidden
         className={`ml-[0.125em] inline-block h-[0.375em] w-[0.375em] bg-[#ff4136] ${blink ? 'square-blink' : ''}`}

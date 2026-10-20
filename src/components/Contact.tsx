@@ -49,19 +49,6 @@ export default function Contact() {
               </ul>
             </div>
             <div>
-              <h3 className={heading}>Phone</h3>
-              <ul className="mt-4 space-y-1 text-sm font-light text-ink/75">
-                {contact.phones.map((p) => (
-                  <li key={p.number}>
-                    <span className="font-medium text-gold-dark">{p.label}</span>{' '}
-                    <a href={`tel:${p.number.replace(/\s/g, '')}`} className="hover:text-gold">
-                      {p.number}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
               <h3 className={heading}>E-mail</h3>
               <a href={`mailto:${contact.email}`} className="mt-4 block break-all text-sm font-light text-ink/75 hover:text-gold">
                 {contact.email}

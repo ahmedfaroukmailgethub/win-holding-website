@@ -1,56 +1,55 @@
 import type { CSSProperties } from 'react'
-import wordmark from '../assets/contra-investment-wordmark.png'
+import anniversary from '../assets/anniversary-20.png'
 
-// Source image is 229×66. Each letter is a tile [x0, x1) × [y0, y1) cut at the
-// gaps between letters, so the tiles fit back together into the full wordmark.
-const W = 229
-const H = 66
-const CONTRA = [36, 61, 90, 119, 143, 167, 191]
-const INVESTMENT = [0, 12, 39, 66, 84, 101, 124, 158, 177, 206, 229]
-const lineTiles = (cuts: number[], y0: number, y1: number) =>
-  cuts.slice(0, -1).map((x0, i) => ({ x0, x1: cuts[i + 1], y0, y1 }))
-const tiles = [...lineTiles(CONTRA, 0, 28), ...lineTiles(INVESTMENT, 38, H)]
-
-const pct = (n: number, of: number) => `${(n / of) * 100}%`
 const wave = (i: number) => ({ '--i': i }) as CSSProperties
 
-// Contra Investment wordmark with a growth wave running letter by letter:
-// C-O-N-T-R-A, then I-N-V-E-S-T-M-E-N-T, then "EST. 2006".
+// Render a line as individual letters, each carrying the growth-wave animation.
+function waveLetters(text: string, start: number) {
+  let i = start
+  const nodes = [...text].map((ch, n) =>
+    ch === ' ' ? (
+      <span key={n} aria-hidden style={{ display: 'inline-block', width: '0.32em' }} />
+    ) : (
+      <span key={n} aria-hidden className="letter-wave inline-block" style={wave(i++)}>
+        {ch}
+      </span>
+    ),
+  )
+  return { nodes, next: i }
+}
+
+// "ULTIMATE GROUP" over "INVESTMENT" in the WIN HOLDING wordmark face (Marcellus),
+// with a growth wave running letter by letter, then "EST. 2006".
+// The two lines are sized so they render at a matching width.
 export default function ContraInvestmentLogo() {
-  let i = tiles.length
+  const l1 = waveLetters('ULTIMATE GROUP', 0)
+  const l2 = waveLetters('INVESTMENT', l1.next)
+  const est = waveLetters('EST. 2006', l2.next)
   return (
-    <div role="img" aria-label="Contra Investment, established 2006" className="w-full">
-      <div aria-hidden className="relative w-full" style={{ aspectRatio: `${W} / ${H}` }}>
-        {tiles.map((t, n) => {
-          const w = t.x1 - t.x0
-          const h = t.y1 - t.y0
-          return (
-            <div
-              key={n}
-              className="letter-wave absolute overflow-hidden"
-              style={{ left: pct(t.x0, W), top: pct(t.y0, H), width: pct(w, W), height: pct(h, H), ...wave(n) }}
-            >
-              <img
-                src={wordmark}
-                alt=""
-                className="absolute max-w-none"
-                style={{ width: pct(W, w), left: pct(-t.x0, w), top: pct(-t.y0, h) }}
-              />
-            </div>
-          )
-        })}
+    <div
+      role="img"
+      aria-label="Ultimate Group Investment, established 2006"
+      className="w-full"
+      style={{ containerType: 'inline-size' }}
+    >
+      <div
+        aria-hidden
+        className="whitespace-nowrap text-center font-wordmark uppercase leading-none text-gold"
+        style={{ fontSize: '10.6cqw', letterSpacing: '0.04em' }}
+      >
+        {l1.nodes}
+      </div>
+      <div
+        aria-hidden
+        className="mt-[3cqw] whitespace-nowrap text-center font-wordmark uppercase leading-none text-ink"
+        style={{ fontSize: '15.8cqw', letterSpacing: '0.005em' }}
+      >
+        {l2.nodes}
       </div>
       <p aria-hidden className="mt-1 pr-[5%] text-right text-[15px] font-bold tracking-wider text-gold">
-        {[...'EST. 2006'].map((ch, n) =>
-          ch === ' ' ? (
-            ' '
-          ) : (
-            <span key={n} className="letter-wave inline-block" style={wave(i++)}>
-              {ch}
-            </span>
-          ),
-        )}
+        {est.nodes}
       </p>
+      <img src={anniversary} alt="20 Year Anniversary" className="mx-auto mt-2 block w-[44%]" />
     </div>
   )
 }
